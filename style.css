@@ -1,0 +1,159 @@
+:root {
+    --red: #cc0000;
+    --bright-red: #ff0000;
+    --dark-bg: #0a0a0a;
+    --card-bg: #151515;
+    --text-white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Black', Gadget, sans-serif;
+}
+
+body.carbon-fiber {
+    background-color: var(--dark-bg);
+    background-image: linear-gradient(315deg, #000000 0%, #1a1a1a 74%);
+    color: var(--text-white);
+    min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 3px solid var(--red);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo { font-size: 28px; letter-spacing: 2px; }
+.logo span { color: var(--red); }
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover, .nav-menu a.active { color: var(--red); }
+
+.btn-login {
+    border: 1px solid var(--red);
+    padding: 8px 18px;
+    border-radius: 4px;
+}
+
+/* HERO */
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Ide tehetsz majd egy autós háttérképet */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=1200');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 { font-size: 60px; line-height: 1.1; }
+.hero h1 span { color: var(--red); text-shadow: 0 0 20px rgba(204, 0, 0, 0.6); }
+.hero p { font-size: 20px; margin: 20px 0 40px; color: #ccc; }
+
+.hero-buttons { display: flex; gap: 20px; justify-content: center; }
+
+.btn-red {
+    background: var(--red);
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-red:hover { background: var(--bright-red); box-shadow: 0 0 20px var(--red); }
+
+.btn-outline {
+    border: 2px solid white;
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-outline:hover { background: white; color: black; }
+
+/* FEATURES */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 80px 10%;
+    background: #050505;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    padding: 40px;
+    text-align: center;
+    border-bottom: 4px solid #333;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    border-color: var(--red);
+    transform: translateY(-10px);
+}
+
+.feature-card i {
+    font-size: 40px;
+    color: var(--red);
+    margin-bottom: 20px;
+}
+
+.footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid #222;
+    font-size: 14px;
+}
+.red { color: var(--red); }
+
+.booking-form {
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: var(--red);
+    text-transform: uppercase;
+}
+
+.input-field {
+    background: #222 !important;
+    border: 1px solid #444 !important;
+    color: white !important;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--red) !important;
+    box-shadow: 0 0 5px var(--red);
+}
