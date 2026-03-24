@@ -1,2 +1,2 @@
 # Gumiverzum v.2
-Krammer János és Pálfy Alexander
+Krammer János és Pálfy Alexadner
