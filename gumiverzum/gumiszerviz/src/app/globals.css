@@ -33,19 +33,40 @@ body.carbon-fiber {
     z-index: 1000;
 }
 
-.logo { font-size: 28px; letter-spacing: 2px; }
-.logo span { color: var(--red); }
+.logo {
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--red);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
 
 .nav-menu a {
     color: white;
     text-decoration: none;
-    margin-left: 25px;
     font-size: 14px;
     text-transform: uppercase;
     transition: 0.3s;
 }
 
-.nav-menu a:hover, .nav-menu a.active { color: var(--red); }
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--red);
+}
 
 .btn-login {
     border: 1px solid var(--red);
@@ -61,16 +82,32 @@ body.carbon-fiber {
     justify-content: center;
     text-align: center;
     /* Ide tehetsz majd egy autós háttérképet */
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=1200');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=1200');
     background-size: cover;
     background-position: center;
 }
 
-.hero h1 { font-size: 60px; line-height: 1.1; }
-.hero h1 span { color: var(--red); text-shadow: 0 0 20px rgba(204, 0, 0, 0.6); }
-.hero p { font-size: 20px; margin: 20px 0 40px; color: #ccc; }
+.hero h1 {
+    font-size: 60px;
+    line-height: 1.1;
+}
 
-.hero-buttons { display: flex; gap: 20px; justify-content: center; }
+.hero h1 span {
+    color: var(--red);
+    text-shadow: 0 0 20px rgba(204, 0, 0, 0.6);
+}
+
+.hero p {
+    font-size: 20px;
+    margin: 20px 0 40px;
+    color: #ccc;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
 
 .btn-red {
     background: var(--red);
@@ -84,7 +121,10 @@ body.carbon-fiber {
     cursor: pointer;
 }
 
-.btn-red:hover { background: var(--bright-red); box-shadow: 0 0 20px var(--red); }
+.btn-red:hover {
+    background: var(--bright-red);
+    box-shadow: 0 0 20px var(--red);
+}
 
 .btn-outline {
     border: 2px solid white;
@@ -98,7 +138,10 @@ body.carbon-fiber {
     cursor: pointer;
 }
 
-.btn-outline:hover { background: white; color: black; }
+.btn-outline:hover {
+    background: white;
+    color: black;
+}
 
 /* FEATURES */
 .features {
@@ -134,7 +177,10 @@ body.carbon-fiber {
     border-top: 1px solid #222;
     font-size: 14px;
 }
-.red { color: var(--red); }
+
+.red {
+    color: var(--red);
+}
 
 .booking-form {
     text-align: left;
@@ -201,7 +247,10 @@ body.carbon-fiber {
 
 .modal-overlay {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
@@ -214,4 +263,89 @@ body.carbon-fiber {
     padding: 30px;
     border-radius: 8px;
     text-align: center;
+    max-width: 90%;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 5%;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        padding: 20px 0;
+        border-bottom: 3px solid var(--red);
+        transition: transform 0.3s ease-in-out, opacity 0.3s;
+        transform: translateY(-20px);
+        opacity: 0;
+        pointer-events: none;
+        gap: 15px;
+    }
+
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .nav-menu a {
+        font-size: 16px;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+
+    .user-links-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-red,
+    .btn-outline {
+        width: 100%;
+        padding: 12px 20px;
+        box-sizing: border-box;
+    }
+
+    .features {
+        padding: 40px 5%;
+        grid-template-columns: 1fr;
+    }
+
+    .page-section {
+        padding: 20px 5% !important;
+    }
+
+    .form-card {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .tire-grid {
+        grid-template-columns: 1fr;
+    }
 }

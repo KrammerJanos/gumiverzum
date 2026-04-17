@@ -7,6 +7,7 @@ export default function Header() {
     const pathname = usePathname();
     const router = useRouter();
     const [user, setUser] = useState(null);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem('jwt_token');
@@ -18,6 +19,7 @@ export default function Header() {
             if (data.loggedIn) setUser(data.user);
             else { setUser(null); localStorage.removeItem('jwt_token'); }
         }).catch(() => setUser(null));
+        setIsMenuOpen(false);
     }, [pathname]);
 
     const handleLogout = () => {
@@ -33,7 +35,10 @@ export default function Header() {
                     GUMIVERZUM<span>.HU</span>
                 </Link>
             </div>
-            <nav className="nav-menu" style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+            <div className="hamburger" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                <i className={`fa-solid ${isMenuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
+            </div>
+            <nav className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
                 <Link href="/" className={pathname === "/" ? "active" : ""}>
                     Kezdőlap
                 </Link>
@@ -52,7 +57,7 @@ export default function Header() {
                 )}
 
                 {user ? (
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                    <div className="user-links-group">
                         <Link href="/dashboard" style={{ color: 'white', fontSize: '14px', textDecoration: 'none' }}>
                             <i className="fa-solid fa-gauge" style={{ color: 'var(--red)', marginRight: '6px' }}></i>
                             Üdv, <span style={{ color: 'var(--red)', fontWeight: 'bold' }}>{user}</span>
